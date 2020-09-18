@@ -21,8 +21,32 @@ app.get('/g/', (req, res) => {
 app.use(bodyParser.text({type: 'text/plain'}));
 
 app.post('/p/', (req, res) => {
+          //POSTされた文字列を取得
           const postStr = req.body;
-          res.json({method: postStr});
+          //取得した文字列をデコード
+          const decode = Buffer.from(postStr,'base64');
+          //最終的に返すエンコード文字列変数
+          const encode;
+          
+          //デコードされたファイルをHerokuの一時フォルダに保存
+          fs.writeFile('/tmp/tmp.png', decode, function(err) {
+                    console.log(err);
+          });
+          
+          //Sharpによる画像変換
+          sharp('/tmp/tmp.png')
+                    .tiff({compression: 'lzw'})
+                    .toFile('/tmp/tmp.tiff');
+          
+          //TIFF形式に変換したファイルをエンコード
+          fs.readFile('/tmp/tmp.tiff', 'base64', function(err, data) {
+                    if (err) throw err;
+                    
+                    encode = data;
+          });
+          
+          //エンコード文字列をJSON形式で返す
+          res.json({method: encode});
           }
        ); // POST追加
 
