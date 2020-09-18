@@ -42,12 +42,12 @@ app.post('/p/', (req, res) => {
           fs.readFile('/tmp/tmp.tiff', 'base64', function(err, data) {
                     if (err) encode = err;
                     
-                    encode = data;
-                    res.json({method: encode});
+                    encode = 'ENCODE';
+                    //res.json({method: encode});
           });
           
           //エンコード文字列をJSON形式で返す
-          //res.json({method: encode});
+          res.json({method: encode});
           }
        ); // POST追加
 
