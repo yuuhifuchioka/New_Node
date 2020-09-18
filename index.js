@@ -42,7 +42,7 @@ app.post('/p/', (req, res) => {
           fs.readFile('/tmp/tmp.tiff', 'base64', function(err, data) {
                     if (err) encode = err;
                     
-                    encode = data;
+                    //encode = data;
           });
           
           //エンコード文字列をJSON形式で返す
