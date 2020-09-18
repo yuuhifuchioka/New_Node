@@ -18,10 +18,10 @@ app.get('/g/', (req, res) => {
           }
        ); // GET追加
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.text({type: 'text/plain'}));
 
 app.post('/p/', (req, res) => {
-          const postStr = req.body.name;
+          const postStr = req.body;
           res.json({method: postStr});
           }
        ); // POST追加
