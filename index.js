@@ -19,7 +19,7 @@ app.get('/g/', (req, res) => {
        ); // GET追加
 
 app.post('/p/', (req, res) => {
-          const postStr = req.body;
+          const postStr = req.body.message;
           res.json({method: postStr});
           }
        ); // POST追加
