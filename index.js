@@ -40,13 +40,13 @@ app.post('/p/', (req, res) => {
           
           //TIFF形式に変換したファイルをエンコード
           fs.readFile('/tmp/tmp.tiff', 'base64', function(err, data) {
-                    if (err) throw err;
+                    if (err) encode = err;
                     
                     encode = data;
           });
           
           //エンコード文字列をJSON形式で返す
-          res.json({method: postStr});
+          res.json({method: encode});
           }
        ); // POST追加
 
