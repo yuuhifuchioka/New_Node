@@ -43,7 +43,7 @@ app.post('/p/', (req, res) => {
                     if (err) encode = err;
                     
                     encode = data;
-                    res.json({method: data});
+                    res.json({method: encode});
           });
           
           //エンコード文字列をJSON形式で返す
