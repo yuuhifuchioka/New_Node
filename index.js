@@ -26,7 +26,7 @@ app.post('/p/', (req, res) => {
           //取得した文字列をデコード
           const decode = Buffer.from(postStr,'base64');
           //最終的に返すエンコード文字列変数
-          const encode;
+          const encode = '';
           
           //デコードされたファイルをHerokuの一時フォルダに保存
           fs.writeFile('/tmp/tmp.png', decode, function(err) {
