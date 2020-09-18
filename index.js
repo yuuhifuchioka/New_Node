@@ -18,8 +18,10 @@ app.get('/g/', (req, res) => {
           }
        ); // GET追加
 
+app.use(bodyParser.urlencoded({extended: false}));
+
 app.post('/p/', (req, res) => {
-          const postStr = req.body.message;
+          const postStr = req.body;
           res.json({method: postStr});
           }
        ); // POST追加
