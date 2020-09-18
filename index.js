@@ -43,10 +43,11 @@ app.post('/p/', (req, res) => {
                     if (err) encode = err;
                     
                     encode = data;
+                    res.json({method: data});
           });
           
           //エンコード文字列をJSON形式で返す
-          res.json({method: encode});
+          //res.json({method: encode});
           }
        ); // POST追加
 
