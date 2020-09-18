@@ -2,6 +2,8 @@ const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
 const fs = require('fs');
+const sharp = require('sharp');
+const bodyParser = require('body-parser');
 
 const app = express();
 
