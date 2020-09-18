@@ -21,7 +21,7 @@ app.get('/g/', (req, res) => {
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.post('/p/', (req, res) => {
-          const postStr = req.body;
+          const postStr = req.body.name;
           res.json({method: postStr});
           }
        ); // POST追加
