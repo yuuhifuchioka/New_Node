@@ -30,6 +30,7 @@ app.post('/p/', (req, res) => {
           
           //デコードされたファイルをHerokuの一時フォルダに保存
           fs.writeFile('/tmp/tmp.png', decode, function(err) {
+                    encode = 'writeFile';
                     console.log(err);
           });
           
@@ -42,7 +43,7 @@ app.post('/p/', (req, res) => {
           fs.readFile('/tmp/tmp.tiff', 'base64', function(err, data) {
                     if (err) encode = err;
                     
-                    encode = 'ENCODE';
+                    //encode = 'ENCODE';
           });
           
           //エンコード文字列をJSON形式で返す
