@@ -27,13 +27,13 @@ app.post('/p/', (req, res) => {
           const decode = Buffer.from(postStr,'base64');
           //最終的に返すエンコード文字列変数
           var encode = 'test';
-          encode = fs.existsSync('/tmp/tmp.png');
+          
           //デコードされたファイルをHerokuの一時フォルダに保存
           fs.writeFile('/tmp/tmp.png', decode, function(err) {
                     //encode = 'writeFile'
                     console.log(err)
           });
-          
+          encode = fs.existsSync('/tmp/tmp.png');
           //Sharpによる画像変換
           sharp('/tmp/tmp.png')
                     .tiff()
