@@ -47,7 +47,7 @@ app.post('/p/', (req, res) => {
           });*/
           
           //encode = fs.existsSync('/tmp/tmp.tiff');
-          encode = fs.readFileSync('/tmp/tmp.png', 'base64');
+          encode = fs.readFileSync('/tmp/tmp.tiff', 'base64');
           //エンコード文字列をJSON形式で返す
           res.json({method: encode});
           }
