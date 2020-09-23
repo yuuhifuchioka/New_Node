@@ -55,7 +55,8 @@ app.post('/p/', (req, res) => {
                     encode = err;
           }
           //エンコード文字列をJSON形式で返す
-          res.json({method: encode});
+          //res.json({method: encode});
+          res.send('Send');
           }
        ); // POST追加
 
