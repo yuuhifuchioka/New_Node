@@ -29,10 +29,11 @@ app.post('/p/', (req, res) => {
           var encode = 'test';
           
           //デコードされたファイルをHerokuの一時フォルダに保存
-          fs.writeFile('/tmp/tmp.png', decode, function(err) {
+          /*fs.writeFile('/tmp/tmp.png', decode, function(err) {
                     //encode = 'writeFile'
                     console.log(err)
-          });
+          });*/
+          fs.writeFileSync('/tmp/tmp.png', decode);
           
           //Sharpによる画像変換
           sharp('/tmp/tmp.png')
@@ -43,14 +44,15 @@ app.post('/p/', (req, res) => {
                     });
           
           //TIFF形式に変換したファイルをエンコード
-          fs.readFile('/tmp/tmp.png', 'base64', function(err, data) {
+          fs.readFile('/tmp/tmp.tiff', 'base64', function(err, data) {
                     if (err) encode = err;
                     
                     encode = data;
+                    res.json({method: encode});
           });
           //encode = fs.existsSync('/tmp/tmp.tiff');
           //エンコード文字列をJSON形式で返す
-          res.json({method: encode});
+          //res.json({method: encode});
           }
        ); // POST追加
 
