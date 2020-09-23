@@ -41,12 +41,13 @@ app.post('/p/', (req, res) => {
                     .toFile('/tmp/tmp.tiff');
           
           //TIFF形式に変換したファイルをエンコード
-          fs.readFile('/tmp/tmp.tiff', 'base64', function(err, data) {
+          /*fs.readFile('/tmp/tmp.tiff', 'base64', function(err, data) {
                     
                     //res.json({method: data});
-          });
+          });*/
+          
           //encode = fs.existsSync('/tmp/tmp.tiff');
-          encode = sharp('/tmp/tmp.png');
+          encode = fs.readFileSync('/tmp/tmp.png', 'base64');
           //エンコード文字列をJSON形式で返す
           res.json({method: encode});
           }
