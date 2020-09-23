@@ -46,11 +46,11 @@ app.post('/p/', (req, res) => {
                     //res.json({method: data});
           });*/
           
-          //encode = fs.existsSync('/tmp/tmp.tiff');
+          encode = fs.existsSync('/tmp/tmp.tiff');
           try{
                     //sharp('/tmp/tmp.png').toFile('/tmp/clone.png');
                     //encode = fs.readFileSync('/tmp/tmp.tiff', 'base64');
-                    encode = decode;
+                    
           }catch(err){
                     encode = err;
           }
