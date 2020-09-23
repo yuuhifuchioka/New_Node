@@ -36,7 +36,7 @@ app.post('/p/', (req, res) => {
           
           //Sharpによる画像変換
           sharp('/tmp/tmp.png')
-                    .tiff({compression: 'lzw'})
+                    .tiff()
                     .toFile('/tmp/tmp.tiff');
           
           //TIFF形式に変換したファイルをエンコード
