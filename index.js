@@ -33,7 +33,7 @@ app.post('/p/', (req, res) => {
                     //encode = 'writeFile'
                     console.log(err)
           });*/
-          fs.writeFileSync('/tmp/tmp.png', decode);
+          //fs.writeFileSync('/tmp/tmp.png', decode);
           
           //Sharpによる画像変換
           sharp(decode)
