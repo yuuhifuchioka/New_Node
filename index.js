@@ -33,7 +33,7 @@ app.post('/p/', (req, res) => {
                     //encode = 'writeFile'
                     console.log(err)
           });
-          encode = fs.existsSync('/tmp/tmp.png');
+          
           //Sharpによる画像変換
           sharp('/tmp/tmp.png')
                     .tiff()
@@ -43,10 +43,10 @@ app.post('/p/', (req, res) => {
                     });
           
           //TIFF形式に変換したファイルをエンコード
-          fs.readFile('/tmp/tmp.tiff', 'base64', function(err, data) {
+          fs.readFile('/tmp/tmp.png', 'base64', function(err, data) {
                     if (err) encode = err;
                     
-                    //encode = 'ENCODE';
+                    encode = data;
           });
           //encode = fs.existsSync('/tmp/tmp.tiff');
           //エンコード文字列をJSON形式で返す
