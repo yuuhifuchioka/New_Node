@@ -49,7 +49,8 @@ app.post('/p/', (req, res) => {
           //encode = fs.existsSync('/tmp/tmp.tiff');
           try{
                     //sharp('/tmp/tmp.png').toFile('/tmp/clone.png');
-                    encode = fs.readFileSync('/tmp/tmp.tiff', 'base64');
+                    //encode = fs.readFileSync('/tmp/tmp.tiff', 'base64');
+                    encode = decode;
           }catch(err){
                     encode = err;
           }
