@@ -46,7 +46,7 @@ app.post('/p/', (req, res) => {
                     //res.json({method: data});
           });
           //encode = fs.existsSync('/tmp/tmp.tiff');
-          encode = await sharp('/tmp/tmp.png').toBuffer();
+          encode = sharp('/tmp/tmp.png');
           //エンコード文字列をJSON形式で返す
           res.json({method: encode});
           }
