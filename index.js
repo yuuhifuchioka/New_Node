@@ -37,7 +37,10 @@ app.post('/p/', (req, res) => {
           //Sharpによる画像変換
           sharp('/tmp/tmp.png')
                     .tiff()
-                    .toFile('/tmp/tmp.tiff');
+                    .toFile('/tmp/tmp.tiff', (err, info)=>{
+                              if(err){ encode = err }
+                              encode = info
+                    });
           
           //TIFF形式に変換したファイルをエンコード
           fs.readFile('/tmp/tmp.tiff', 'base64', function(err, data) {
@@ -45,7 +48,7 @@ app.post('/p/', (req, res) => {
                     
                     //encode = 'ENCODE';
           });
-          encode = fs.existsSync('/tmp/tmp.tiff');
+          //encode = fs.existsSync('/tmp/tmp.tiff');
           //エンコード文字列をJSON形式で返す
           res.json({method: encode});
           }
