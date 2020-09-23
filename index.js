@@ -30,8 +30,8 @@ app.post('/p/', (req, res) => {
           
           //デコードされたファイルをHerokuの一時フォルダに保存
           fs.writeFile('/tmp/tmp.png', decode, function(err) {
-                    //encode = 'writeFile';
-                    console.log(err);
+                    encode = 'writeFile'
+                    console.log(err)
           });
           
           //Sharpによる画像変換
