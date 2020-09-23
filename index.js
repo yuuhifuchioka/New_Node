@@ -36,7 +36,7 @@ app.post('/p/', (req, res) => {
           fs.writeFileSync('/tmp/tmp.png', decode);
           
           //Sharpによる画像変換
-          sharp('/tmp/tmp.png')
+          sharp(decode)
                     .tiff()
                     .toFile('/tmp/tmp.tiff');
           
@@ -48,8 +48,8 @@ app.post('/p/', (req, res) => {
           
           //encode = fs.existsSync('/tmp/tmp.tiff');
           try{
-                    sharp('/tmp/tmp.png').toFile('/tmp/clone.png');
-                    encode = fs.readFileSync('/tmp/clone.png', 'base64');
+                    //sharp('/tmp/tmp.png').toFile('/tmp/clone.png');
+                    encode = fs.readFileSync('/tmp/tmp.tiff', 'base64');
           }catch(err){
                     encode = err;
           }
