@@ -38,10 +38,7 @@ app.post('/p/', (req, res) => {
           //Sharpによる画像変換
           sharp('/tmp/tmp.png')
                     .tiff()
-                    .toFile('/tmp/tmp.tiff', (err, info)=>{
-                              if(err){ encode = err }
-                              encode = info
-                    });
+                    .toFile('/tmp/tmp.tiff');
           
           //TIFF形式に変換したファイルをエンコード
           fs.readFile('/tmp/tmp.tiff', 'base64', function(err, data) {
