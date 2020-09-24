@@ -49,9 +49,14 @@ app.post('/p/', (req, res) => {
           //encode = fs.existsSync('/tmp/tmp.tiff');
           try{
                     var isExist = false;
+                    var count = 0;
                     while(isExist == false){
                               //生成されるまでループ
                               isExist = fs.existsSync('/tmp/tmp.tiff');
+                              count++;
+                              if(count > 5){
+                                 break;
+                                 }
                           }
                     encode = fs.readFileSync('/tmp/tmp.png', 'base64');
                     
