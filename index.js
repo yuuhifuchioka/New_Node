@@ -42,9 +42,7 @@ app.post('/p/', (req, res) => {
 
                     resolve(result);
           });
-          
-p.then(function (result) {
-});          
+                 
           //TIFF形式に変換したファイルをエンコード
           /*fs.readFile('/tmp/tmp.tiff', 'base64', function(err, data) {
                     
