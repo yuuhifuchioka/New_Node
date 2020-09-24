@@ -36,9 +36,14 @@ app.post('/p/', (req, res) => {
           //fs.writeFileSync('/tmp/tmp.png', decode);
           
           //Sharpによる画像変換
-          sharp(decode)
-                    .png()
-                    .toFile('/tmp/tmp.png');
+          const p = return new Promise(resolve => {
+                    // ...何かしらの時間がかかる処理...
+                    const result = sharp(decode).png().toFile('/tmp/tmp.png');
+
+                    resolve(result);
+          });
+          
+p.then(function (result) {
           
           //TIFF形式に変換したファイルをエンコード
           /*fs.readFile('/tmp/tmp.tiff', 'base64', function(err, data) {
@@ -48,18 +53,7 @@ app.post('/p/', (req, res) => {
           
           //encode = fs.existsSync('/tmp/tmp.tiff');
           try{
-                    var isExist = false;
-                    var count = 0;
-                    while(isExist == false){
-                              //生成されるまでループ
-                              isExist = fs.existsSync('/tmp/tmp.tiff');
-                              count++;
-                              if(count > 5){
-                                 break;
-                                 }
-                          }
-                    encode = fs.readFileSync('/tmp/tmp.png', 'base64');
-                    
+                    encode = fs.readFileSync('/tmp/tmp.png', 'base64');      
           }catch(err){
                     encode = err;
           }
@@ -67,6 +61,7 @@ app.post('/p/', (req, res) => {
           //res.json({method: encode});
           res.send(encode);
           }
+});
        ); // POST追加
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
