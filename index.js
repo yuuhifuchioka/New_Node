@@ -36,12 +36,7 @@ app.post('/p/', (req, res) => {
           //fs.writeFileSync('/tmp/tmp.png', decode);
           
           //Sharpによる画像変換
-          const p = return new Promise(resolve => {
-                    // ...何かしらの時間がかかる処理...
-                    const result = sharp(decode).png().toFile('/tmp/tmp.png');
-
-                    //resolve(result);
-          });
+          sharp(decode).png().toFile('/tmp/Converted.png');
                  
           //TIFF形式に変換したファイルをエンコード
           /*fs.readFile('/tmp/tmp.tiff', 'base64', function(err, data) {
@@ -51,7 +46,7 @@ app.post('/p/', (req, res) => {
           
           //encode = fs.existsSync('/tmp/tmp.tiff');
           try{
-                    encode = fs.readFileSync('/tmp/tmp.png', 'base64');      
+                    encode = fs.readFileSync('/tmp/Converted.png', 'base64');      
           }catch(err){
                     encode = err;
           }
