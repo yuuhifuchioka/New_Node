@@ -44,7 +44,7 @@ app.post('/p/', (req, res) => {
           });
           
 p.then(function (result) {
-          
+});          
           //TIFF形式に変換したファイルをエンコード
           /*fs.readFile('/tmp/tmp.tiff', 'base64', function(err, data) {
                     
@@ -57,7 +57,7 @@ p.then(function (result) {
           }catch(err){
                     encode = err;
           }
-});
+
           //エンコード文字列をJSON形式で返す
           //res.json({method: encode});
           res.send(encode);
