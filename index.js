@@ -18,7 +18,7 @@ app.get('/g/', (req, res) => {
           }
        ); // GET追加
 
-app.use(bodyParser.text({type: 'text/plain'}));
+app.use(bodyParser.text({type: 'text/plain', limit: '5mb'}));
 
 app.post('/p/', (req, res) => {
           //POSTされた文字列を取得
