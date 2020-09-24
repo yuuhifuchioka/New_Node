@@ -40,7 +40,7 @@ app.post('/p/', (req, res) => {
                     // ...何かしらの時間がかかる処理...
                     const result = sharp(decode).png().toFile('/tmp/tmp.png');
 
-                    resolve(result);
+                    //resolve(result);
           });
                  
           //TIFF形式に変換したファイルをエンコード
