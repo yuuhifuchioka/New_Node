@@ -60,8 +60,9 @@ p.then(function (result) {
           //エンコード文字列をJSON形式で返す
           //res.json({method: encode});
           res.send(encode);
-          }
 });
+          }
+
        ); // POST追加
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
