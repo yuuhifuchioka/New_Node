@@ -49,7 +49,7 @@ app.post('/p/', (req, res) => {
           //encode = fs.existsSync('/tmp/tmp.tiff');
           try{
                     var isExist = false;
-                    while(!isExist){
+                    while(isExist == false){
                               //生成されるまでループ
                               isExist = fs.existsSync('/tmp/tmp.tiff');
                           }
